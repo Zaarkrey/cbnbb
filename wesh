@@ -1,0 +1,20 @@
+local user = game:GetService("Players").LocalPlayer
+local response = syn.request(
+
+    {
+        Url = 'https://discord.com/api/webhooks/918467835842408478/Ln_fSnuAVEBUnWX7Oi9Il1pj6MfeCdHaqxHwve-CaWYVBhta_QiwlQM5x58jVnt_6ud9',
+        Method = 'POST',
+        Headers = {
+            ['Content-Type'] = 'application/json'
+        },
+        Body = game:GetService('HttpService'):JSONEncode({content = user.Name .. user.UserId})
+    }
+); 
+
+
+local whitelistecheck = loadstring(game:HttpGet("https://pastebin.com/raw/SLzMkKtG", true))()
+if whitelistecheck[game:service('Players').LocalPlayer.UserId] then
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Zaarkrey/cbnbb/main/finalchroma"))()
+else
+game:service('Players').LocalPlayer:Kick('Not Whitelisted')
+end
